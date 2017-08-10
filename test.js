@@ -24,11 +24,14 @@ describe('app', () => {
     return expect(fetchData()).resolves.toBe('res');
   });
 
-  xit('should not fail', () => {
-    expect(true).toBe(true);
+  it.only('testing mocks', () => {
+    const myMock = jest.fn();
+    myMock(1);
+    myMock(2);
+    console.log(myMock.mock.instances);
   });
 
-  xit('shold load main page', (done) => {
+  it('shold load main page', (done) => {
     const Nightmare = require('nightmare');
     const nightmare = new Nightmare({
       show: true,
